@@ -32,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
                 mostrar.setText("Sintax Error");
                 this.sintaxError = true;
             }
+        } else {
+            positionPlus = contenido.indexOf("-");
+            try {
+                num1 = Integer.parseInt(contenido.substring(0, positionPlus));
+                num2 = Integer.parseInt(contenido.substring(positionPlus, contenido.length()));
+                mostrar.setText("" + (num1 - num2));
+            } catch (Exception e) {
+                mostrar.setText("Sintax Error");
+                this.sintaxError = true;
+            }
         }
     }
 
@@ -109,6 +119,13 @@ public class MainActivity extends AppCompatActivity {
         if (!sintaxError) {
             TextView mostrar = (TextView) findViewById(R.id.tFResultado);
             mostrar.setText(mostrar.getText() + "+");
+        }
+    }
+
+    public void clickMinus(View view) {
+        if (!sintaxError) {
+            TextView mostrar = (TextView) findViewById(R.id.tFResultado);
+            mostrar.setText(mostrar.getText() + "-");
         }
     }
 
