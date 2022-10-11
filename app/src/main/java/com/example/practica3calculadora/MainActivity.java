@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickResult(View view) {
         String contenido;
-        int positionPlus, num1, num2;
+        int positionPlus, num1, num2, result;
         TextView mostrar = (TextView) findViewById(R.id.tFResultado);
 
         contenido = mostrar.getText().toString();
@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 num1 = Integer.parseInt(contenido.substring(0, positionPlus));
                 num2 = Integer.parseInt(contenido.substring(positionPlus, contenido.length()));
-                mostrar.setText("" + (num1 + num2));
+                result = num1 + num2;
+                mostrar.setText(Integer.toString(result));
             } catch (Exception e) {
                 mostrar.setText("Sintax Error");
                 this.sintaxError = true;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 num1 = Integer.parseInt(contenido.substring(0, positionPlus));
                 num2 = Integer.parseInt(contenido.substring(positionPlus, contenido.length()));
-                mostrar.setText("" + (num1 - num2));
+                result = num1 - num2;
+                mostrar.setText(Integer.toString(result));
             } catch (Exception e) {
                 mostrar.setText("Sintax Error");
                 this.sintaxError = true;
