@@ -17,34 +17,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickResult(View view) {
-        String contenido;
-        int positionPlus, num1, num2, result;
         TextView mostrar = (TextView) findViewById(R.id.tFResultado);
-
-        contenido = mostrar.getText().toString();
-        if (contenido.contains("+")) {
-            positionPlus = contenido.indexOf("+");
-            try {
-                num1 = Integer.parseInt(contenido.substring(0, positionPlus));
-                num2 = Integer.parseInt(contenido.substring(positionPlus, contenido.length()));
-                result = num1 + num2;
-                mostrar.setText(Integer.toString(result));
-            } catch (Exception e) {
-                mostrar.setText("Sintax Error");
-                this.sintaxError = true;
-            }
-        } else {
-            positionPlus = contenido.indexOf("-");
-            try {
-                num1 = Integer.parseInt(contenido.substring(0, positionPlus));
-                num2 = Integer.parseInt(contenido.substring(positionPlus, contenido.length()));
-                result = num1 - num2;
-                mostrar.setText(Integer.toString(result));
-            } catch (Exception e) {
-                mostrar.setText("Sintax Error");
-                this.sintaxError = true;
-            }
+        try {
+            mostrar.setText(calculate(mostrar.getText().toString()));
+        } catch (Exception e) {
+            mostrar.setText("Syntax Error");
         }
+
     }
 
     public void clickNumber1(View view) {
@@ -135,5 +114,32 @@ public class MainActivity extends AppCompatActivity {
         TextView mostrar = (TextView) findViewById(R.id.tFResultado);
         mostrar.setText("");
         this.sintaxError = false;
+    }
+
+    public String calculate(String cadena) throws Exception {
+        int posMas;
+        String num1, num2;
+
+        if (cadena.contains("+")) {
+            posMas = cadena.indexOf("+");
+            num1 = cadena.substring(0, posMas);
+            num2 = cadena.substring(posMas + 1);
+            return Integer.toString(Integer.parseInt(calculate(num1)) + Integer.parseInt(calculate(num2)));
+        } else if (cadena.contains("-")) {
+            posMas = cadena.indexOf("-");
+            num1 = cadena.substring(0, posMas);
+            num2 = cadena.substring(posMas + 1);
+            if (Integer.parseInt(calculate(num1)) < Integer.parseInt(calculate(num2))) {
+                return "-" + Integer.toString(Integer.parseInt(calculate(num2)) - Integer.parseInt(calculate(num1)));
+            } else {
+                return Integer.toString(Integer.parseInt(calculate(num1)) - Integer.parseInt(calculate(num2)));
+            }
+
+        } else {
+            if (cadena.isEmpty()) {
+                return "0";
+            }
+        }
+        return cadena;
     }
 }
