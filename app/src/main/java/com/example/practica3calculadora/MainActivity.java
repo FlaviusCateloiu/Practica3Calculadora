@@ -134,12 +134,12 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 return Integer.toString(Integer.parseInt(calculate(num1)) - Integer.parseInt(calculate(num2)));
             }
-
         } else {
             if (cadena.isEmpty()) {
                 return "0";
+            } else {
+                return cadena;
             }
         }
-        return cadena;
     }
 }
