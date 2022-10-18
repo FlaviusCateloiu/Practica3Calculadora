@@ -21,9 +21,12 @@ public class ClaculadoraTest {
     }
 
     @Test
-    public void testCalculate() {
-        assertEquals( "La operacion no se ha podido realizar.", "1", calc.calculate("-3+4"));
-        assertEquals( "La operacion no se ha podido realizar.", "-7", calc.calculate("-3-4"));
-        assertEquals( "La operacion no se ha podido realizar.", "100", calc.calculate("10*10"));
+    public void testCalculateDosPorTres() {
+        assertEquals( "La operacion no se ha podido realizar.", "6", calc.calculate("2*3"));
+    }
+
+    @Test
+    public void testCalculateUnoPorDosPorOcho() {
+        assertEquals( "La operacion no se ha podido realizar.", "16", calc.calculate("1*2*8"));
     }
 }
