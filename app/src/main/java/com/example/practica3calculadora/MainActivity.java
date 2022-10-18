@@ -17,13 +17,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickResult(View view) {
+        Calculadora calc = new Calculadora();
         TextView mostrar = (TextView) findViewById(R.id.tFResultado);
-        try {
-            mostrar.setText(calculate(mostrar.getText().toString()));
-        } catch (Exception e) {
-            mostrar.setText("Syntax Error");
-        }
-
+        mostrar.setText(calc.calculate(mostrar.getText().toString()));
     }
 
     public void clickNumber1(View view) {
@@ -116,30 +112,4 @@ public class MainActivity extends AppCompatActivity {
         this.sintaxError = false;
     }
 
-    public String calculate(String cadena) throws Exception {
-        int posMas;
-        String num1, num2;
-
-        if (cadena.contains("+")) {
-            posMas = cadena.indexOf("+");
-            num1 = cadena.substring(0, posMas);
-            num2 = cadena.substring(posMas + 1);
-            return Integer.toString(Integer.parseInt(calculate(num1)) + Integer.parseInt(calculate(num2)));
-        } else if (cadena.contains("-")) {
-            posMas = cadena.indexOf("-");
-            num1 = cadena.substring(0, posMas);
-            num2 = cadena.substring(posMas + 1);
-            if (Integer.parseInt(calculate(num1)) < Integer.parseInt(calculate(num2))) {
-                return "-" + Integer.toString(Integer.parseInt(calculate(num2)) - Integer.parseInt(calculate(num1)));
-            } else {
-                return Integer.toString(Integer.parseInt(calculate(num1)) - Integer.parseInt(calculate(num2)));
-            }
-        } else {
-            if (cadena.isEmpty()) {
-                return "0";
-            } else {
-                return cadena;
-            }
-        }
-    }
 }
