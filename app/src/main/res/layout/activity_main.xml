@@ -146,7 +146,7 @@
         android:layout_marginEnd="10dp"
         android:onClick="clickPlus"
         android:text="+"
-        app:layout_constraintBottom_toTopOf="@+id/botonRestar"
+        app:layout_constraintBottom_toTopOf="@+id/botonMenos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/boton03"
         app:layout_constraintTop_toBottomOf="@+id/tFResultado" />
@@ -167,36 +167,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botonRestar"
+        android:id="@+id/botonMenos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:onClick="clickMinus"
         android:text="-"
-        app:layout_constraintBottom_toTopOf="@+id/botonResult"
+        app:layout_constraintBottom_toTopOf="@+id/botonPor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/botonSumar"
         app:layout_constraintTop_toBottomOf="@+id/botonSumar" />
 
     <Button
+        android:id="@+id/botonPor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="clickProduct"
+        android:text="*"
+        app:layout_constraintBottom_toTopOf="@+id/botonResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/botonMenos"
+        app:layout_constraintTop_toBottomOf="@+id/botonMenos" />
+
+    <Button
         android:id="@+id/botonResult"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:onClick="clickResult"
         android:text="="
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/botonBorrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/botonRestar"
-        app:layout_constraintTop_toBottomOf="@+id/botonRestar" />
+        app:layout_constraintStart_toStartOf="@+id/botonPor"
+        app:layout_constraintTop_toBottomOf="@+id/botonPor" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/botonBorrar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:onClick="clickCBorrar"

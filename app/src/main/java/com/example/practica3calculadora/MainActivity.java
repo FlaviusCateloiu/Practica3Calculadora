@@ -106,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void clickProduct(View view) {
+        if (!sintaxError) {
+            TextView mostrar = (TextView) findViewById(R.id.tFResultado);
+            mostrar.setText(mostrar.getText() + "*");
+        }
+    }
+
     public void clickCBorrar(View view) {
         TextView mostrar = (TextView) findViewById(R.id.tFResultado);
         mostrar.setText("");
