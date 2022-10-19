@@ -47,6 +47,11 @@ public class ClaculadoraTest {
 
     @Test
     public void testCalculateMenosUnoMenosMenosUno() {
+        assertEquals( "La operacion no se ha podido realizar.", "0", calc.calculate("-1--1"));
+    }
+
+    @Test
+    public void testCalculateDosMenosMenosUno() {
         assertEquals( "La operacion no se ha podido realizar.", "-2", calc.calculate("2*-1"));
     }
 }
