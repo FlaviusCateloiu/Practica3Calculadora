@@ -29,4 +29,9 @@ public class ClaculadoraTest {
     public void testCalculateUnoPorDosPorOcho() {
         assertEquals( "La operacion no se ha podido realizar.", "16", calc.calculate("1*2*8"));
     }
+
+    @Test
+    public void testCalculateDosPorDosMasTres() {
+        assertEquals( "La operacion no se ha podido realizar.", "3", calc.calculate("1*2*8"));
+    }
 }
